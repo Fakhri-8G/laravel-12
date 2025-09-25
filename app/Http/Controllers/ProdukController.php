@@ -25,8 +25,8 @@ class ProdukController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required',  //ganti
-            'stock' => 'required',  //ganti
+            'price' => 'required',
+            'stock' => 'required',
         ]);
 
         produk::create($request->all());
@@ -36,10 +36,10 @@ class ProdukController extends Controller
     // Update data lama
     public function update(Request $request, $id){
         $request->validate([
-            'name' => 'required',    //ganti
+            'name' => 'required',  
             'description' => 'required',
             'price' => 'required',
-            'stock' => 'required',  //ganti
+            'stock' => 'required',
         ]);
 
         $pro = produk::findOrFail($id);

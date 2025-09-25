@@ -3,28 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Produk FTs Project</title>
+<title>Data Produk</title>
 
 <!-- Bootstrap CSS Offline -->
 <link rel="stylesheet" href="{{ asset('bootstrap-5.3.8-dist/css/bootstrap.min.css') }}">
 
 <style>
-/* Custom tambahan biar tombol warna beda */
-.btn-del { background-color: #dc3545; color: #fff; }
-.btn-edit { background-color: #fd7e14; color: #fff; }
+/* Custom tambahan biar tombol berwarna beda */
+.btn-del { background-color: #fa1b31; color: #fff; }
+.btn-edit { background-color: #ff6811; color: #fff; }
 .error { color:red; font-size:0.9em; }
 </style>
 </head>
 <body class="bg-light">
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="text-left mb-0">Manajemen Produk</h1>
-        <h3><a href="{{ url('/produk') }}"><button class="btn btn-primary">Tambah Produk +</button></a></h3>
+        <h1 class="text-left mb-0">Data Produk</h1>
+        <h3><a href="{{ url('/produk') }}" onclick="return confirm('Tampilan Tambah Produk ada dibawah')"><button class="btn btn-primary">Tambah Produk +</button></a></h3>
     </div>
-
-    @if(session('success'))
-        <div class="alert alert-success text-center">{{ session('success') }}</div>
-    @endif
 
     <!-- Table -->
     <div class="table-responsive mb-5">
@@ -48,17 +44,22 @@
                     <td>Rp {{ number_format($c->price,0,',','.') }}</td>
                     <td>{{ $c->stock }}</td>
                     <td>
-                        <a href="{{ url('/produk/edit/'.$c->id) }}" class="btn btn-edit btn-sm mb-1">Update</a>
-                        <form action="{{ url('/produk/'.$c->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin mau hapus produk ini? 😅')">
+                        <form action="{{ url('/produk/'.$c->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin mau hapus produk {{ $c->name }}? 😅')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-del btn-sm">Hapus</button>
                         </form>
+                        <a href="{{ url('/produk/edit/'.$c->id) }}" class="btn btn-edit btn-sm mb-1" onclick="return confirm('Tampilan Update ada dibawah')">Update</a>
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+
+        @if(session('success'))
+            <div class="alert alert-success text-white text-center bg-success">{{ session('success') }}</div>
+        @endif
+
     </div>
 
     <!-- Form Tambah / Update -->
@@ -94,7 +95,7 @@
                 <input type="number" name="stock" class="form-control" value="{{ old('stock', $editpro->stock ?? '') }}">
             </div>
 
-            <button type="submit" class="btn btn-primary w-100">
+            <button type="submit" class="btn btn-info w-100">
                 {{ isset($editpro) ? 'Update Produk' : 'Tambah Produk' }}
             </button>
         </form>

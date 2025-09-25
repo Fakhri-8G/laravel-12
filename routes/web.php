@@ -238,10 +238,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::put('/crud/{id}', [BioController::class, 'update']); // Update
 // Route::delete('/crud/{id}', [BioController::class, 'des']); // Delete
 
+
 // ╔══════════════════════════════════╗
-// ║ -- product url{/       } --  ║
+// ║ -- produk url{/       } --  ║
 // ╚══════════════════════════════════╝
-// Product CRUD
+// Produk CRUD
 Route::get('/produk', [ProdukController::class, 'index']);      // Tabel + tambah data
 Route::get('/produk/edit/{id}', [ProdukController::class, 'edit']); // Form update
 Route::post('/produk', [ProdukController::class, 'store']);     // Create
