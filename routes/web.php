@@ -67,6 +67,18 @@ Route::get('/m-k-d', function () {
     return "{$mhs->nama} dibimbing oleh {$mhs->dosen->nama}";
 });
 
+// ╔════════════════════════════════════════╗
+// ║ -- Tabel Many To Many url{/} --         ║
+// ╚════════════════════════════════════════╝
+Route::get('/many-to-many', [RelasiController::class, 'manyToMany']);
+
+
+
+
+Route::get('eloquent', [RelasiController::class, 'eloquent']);
+
+
+
 
 
 // ╔══════════════════════════════════╗
