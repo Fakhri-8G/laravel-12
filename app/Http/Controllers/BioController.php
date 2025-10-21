@@ -51,7 +51,7 @@ class BioController extends Controller
     ]);
 
 
-    $bio = biodataa::findOrFail($id);
+        $bio = biodataa::findOrFail($id);
         $bio->update($request->all());
         return redirect('/crud')->with('success','Data berhasil diupdate');
     }

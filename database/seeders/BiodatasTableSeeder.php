@@ -15,14 +15,14 @@ class BiodatasTableSeeder extends Seeder
     {
         DB::table('biodatas')->insert([
             [ 
-                'nama_lengkap' => 'Fakhri Ibnu Nabil', 
+                'nama_lengkap'  => 'Fakhri Ibnu Nabil', 
                 'jenis_kelamin' => 'Laki-laki', 
                 'tanggal_lahir' => '2009-01-05', 
-                'tempat_lahir' => 'Bandung', 
-                'agama' => 'Islam', 
-                'alamat' => 'Rancamanyar', 
-                'telepon' => '083142353069', 
-                'email' => 'fakhri.@gmail.com',
+                'tempat_lahir'  => 'Bandung', 
+                'agama'         => 'Islam', 
+                'alamat'        => 'Rancamanyar', 
+                'telepon'       => '083142353069', 
+                'email'         => 'fakhri.@gmail.com',
             ],
             [ 
                 'nama_lengkap' => 'Ilman Abidullah', 
