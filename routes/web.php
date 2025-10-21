@@ -4,6 +4,7 @@ use App\Models\biodata;
 use App\Models\Siswa;
 use App\Models\Produk;
 use App\Models\Wali;
+use App\Models\Mahasiswa;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\PostsController; // <-- Import Method/Data dari Controller
 use Illuminate\Support\Facades\Route;
@@ -46,9 +47,9 @@ Route::resource('biodata', BiodataController::class);
 Route::resource('pengguna', PenggunaController::class);
 
 
-// ╔══════════════════════════════════════╗
-// ║ -- Tabel One To One url{/pengguna} --  ║
-// ╚══════════════════════════════════════╝
+// ╔════════════════════════════════════════╗
+// ║ -- Tabel One To One url{/} --          ║
+// ╚════════════════════════════════════════╝
 Route::get('/one-to-one', [RelasiController::class, 'oneToOne']);
 
 Route::get('/wali-ke-mahasiswa', function () {
@@ -56,9 +57,15 @@ Route::get('/wali-ke-mahasiswa', function () {
     return "{$wali->nama} adalah wali dari {$wali->mahasiswa->nama}";
 });
 
+// ╔════════════════════════════════════════╗
+// ║ -- Tabel One To Many url{/} --          ║
+// ╚════════════════════════════════════════╝
+Route::get('/one-to-many', [RelasiController::class, 'oneToMany']);
 
-
-
+Route::get('/m-k-d', function () {
+    $mhs = Mahasiswa::where('nim', '123456')->first();
+    return "{$mhs->nama} dibimbing oleh {$mhs->dosen->nama}";
+});
 
 
 

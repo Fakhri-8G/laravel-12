@@ -15,4 +15,9 @@ class Mahasiswa extends Model
     {
         return $this->hasOne(Wali::class, 'id_mahasiswa');  
     }
+
+    public function dosen() 
+    {
+        return $this->belongsTo(Dosen::class, 'id_dosen');    
+    }
 }
