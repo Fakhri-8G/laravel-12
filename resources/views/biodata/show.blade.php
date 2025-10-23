@@ -37,7 +37,7 @@
                         </div>
                         <div class="mb-3">
                             <label>Email</label>
-                            <input type="t" class="form-control" name="email" value="{{ $biodatas->email }}" disabled>
+                            <input type="text" class="form-control" name="email" value="{{ $biodatas->email }}" disabled>
                         </div>
                         <div class="mb-3">
                             <img src="{{ asset('/images/biodata/' . $biodatas->foto) }}" width="100" style="width: 100px; height: auto;">

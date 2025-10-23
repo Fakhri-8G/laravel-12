@@ -12,4 +12,9 @@ class Pengguna extends Model
     protected $fillable = ['id', 'nama'];
     public $timestamps = true;
 
+    public function telepons()
+    {
+        return $this->hasOne(Telepon::class, 'id_pengguna');
+    }
+
 }

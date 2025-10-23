@@ -11,9 +11,13 @@ use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\Foreach_;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BioController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\MuridController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\TeleponController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RelasiController;
+use App\Models\telepon;
 
 Route::get('/product', [ProductController::class, 'index'])->name('product');
 
@@ -41,10 +45,15 @@ Route::resource('post', PostsController::class);
 // ╚══════════════════════════════════════╝
 Route::resource('biodata', BiodataController::class);
 
-// ╔══════════════════════════════════════╗
-// ║ -- Tabel Pengguna url{/pengguna} --  ║
-// ╚══════════════════════════════════════╝
+// ╔═══════════════════════════════════════════════════╗
+// ║ -- Tabel  --  ║
+// ╚═══════════════════════════════════════════════════╝
 Route::resource('pengguna', PenggunaController::class);
+Route::resource('telepon', TeleponController::class);
+
+
+Route::resource('kelas', KelasController::class);
+Route::resource('murid', MuridController::class);
 
 
 // ╔════════════════════════════════════════╗
@@ -74,8 +83,23 @@ Route::get('/many-to-many', [RelasiController::class, 'manyToMany']);
 
 
 
-
 Route::get('eloquent', [RelasiController::class, 'eloquent']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -5,20 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Ubah Data Pengguna</div>
-                    <div class="card-body">
-                        <form action="{{ route('pengguna.update', $penggunas->id) }}" method="post" enctype="multipart/form-data">
+                <div class="card-header">Tambah Data Kelas</div>
+                <div class="card-body">
+                    <form action="{{ route('kelas.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
                         <div class="mb-3">
-                            <label>Nama</label>
-                            <input type="text" class="form-control" name="nama" value="{{ $penggunas->nama }}">
-                            @error('nama')
+                            <label>Nama Kelas</label>
+                            <input type="text" class="form-control @error('nama_kelas') is-invalid @enderror" name="nama_kelas" placeholder="Nama Kelas">
+                             @error('nama_kelas')
                                 <small style="color:red;">{{ $message }}</small>
                             @enderror
                         </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                        </form>
+                    </form>
                 </div>
             </div>
         </div>
