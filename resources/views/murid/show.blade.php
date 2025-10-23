@@ -35,6 +35,10 @@
                             <label>Email</label>
                             <input type="text" class="form-control" name="email" value="{{ $murid->email }}" disabled>
                         </div>
+                        <div class="mb-3">
+                            <label>Nama Kelas</label>
+                            <input type="text" class="form-control" name="id_kelas" value="{{ $murid->kelas->nama_kelas }}" disabled>
+                        </div>
                             <a href="{{ route('murid.index') }}" class="btn btn-primary"><i class="bi bi-arrow-left-square-fill"></i> Kembali</a>
                 </div>
             </div>

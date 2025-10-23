@@ -74,6 +74,7 @@
                         <div class="form-group mb-3">
                             <label for="">Nama Kelas</label>
                             <select name="id_kelas" class="form-control" id="">
+                                <option value="" selected disabled>Pilih Kelas</option>
                                 @foreach ($kelas as $data)
                                     <option value="{{ $data->id }}">{{ $data->nama_kelas }}</option>
                                 @endforeach

@@ -77,7 +77,8 @@ class MuridController extends Controller
     public function show(string $id)
     {
         $murid = Murid::findOrFail($id);
-        return view('murid.show', compact('murid'));
+        $kelas = Kelas::all();
+        return view('murid.show', compact('murid', 'kelas'));
     }
 
     /**
