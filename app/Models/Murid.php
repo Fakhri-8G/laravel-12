@@ -8,7 +8,7 @@ class Murid extends Model
 {
     protected $fillable = ['id', 'nama_lengkap', 'jenis_kelamin', 'tanggal_lahir', 'tempat_lahir', 'agama', 'alamat', 'email', 'id_kelas'];
 
-    public function Kelas() 
+    public function kelas() 
     {
         return $this->belongsTo(Kelas::class, 'id_kelas');    
     }

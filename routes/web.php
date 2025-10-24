@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangController;
 use App\Models\biodata;
 use App\Models\Siswa;
 use App\Models\Produk;
@@ -13,10 +14,12 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BioController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MuridController;
+use App\Http\Controllers\PembeliController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\TeleponController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RelasiController;
+use App\Http\Controllers\TransaksiController;
 use App\Models\telepon;
 
 Route::get('/product', [ProductController::class, 'index'])->name('product');
@@ -54,6 +57,10 @@ Route::resource('telepon', TeleponController::class);
 
 Route::resource('kelas', KelasController::class);
 Route::resource('murid', MuridController::class);
+
+Route::resource('barang', BarangController::class);
+Route::resource('pembeli', PembeliController::class);
+Route::resource('transaksi', TransaksiController::class);
 
 
 // ╔════════════════════════════════════════╗
